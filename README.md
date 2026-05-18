@@ -1,104 +1,70 @@
 # AI Radar
 
-AI Radar organiza noticias, herramientas, papers, repos y productos de IA para convertir ruido en senales accionables.
+AI Radar es el proyecto del curso avanzado de Codex.
 
-Este es el repo de trabajo del curso avanzado de Codex. Los estudiantes trabajan sobre este proyecto y cada clase queda representada por una rama/checkpoint del repo.
+El objetivo del producto es organizar noticias, herramientas, papers, repos y lanzamientos de IA para convertirlos en senales accionables para builders: que paso, por que importa, que tan confiable es y que vale la pena probar.
 
-## Setup
+Estado inicial: definicion de producto, stack objetivo y reglas iniciales. La implementacion se construye por capas durante el curso con Codex.
 
-La ruta recomendada usa Dekk para que todos los comandos corran desde la raiz correcta del repo:
+## Problema
 
-```bash
-dekk airadar install
-dekk airadar doctor
-dekk airadar lint
-dekk airadar test
-dekk airadar build
-dekk airadar dev
-```
+El ritmo de la inteligencia artificial genera demasiado ruido:
 
-Si no tienes Dekk instalado:
+- lanzamientos repetidos en varias fuentes,
+- repos que parecen importantes pero no tienen adopcion,
+- demos sin documentacion suficiente,
+- papers sin ejemplo practico,
+- herramientas con impacto real mezcladas con marketing.
 
-```bash
-pipx install dekk
-```
+AI Radar debe ayudar a separar ruido de senales utiles.
 
-Fallback sin Dekk:
+## Producto Objetivo
 
-```bash
-pnpm install
-pnpm lint
-pnpm test
-pnpm build
-pnpm dev
-```
+Al final del curso, AI Radar debe poder:
 
-Abrir:
+- recopilar novedades de IA desde fuentes seleccionadas,
+- normalizar noticias, repos, papers y productos,
+- detectar duplicados y noticias parecidas,
+- agrupar senales por tema,
+- rankear por novedad, impacto, evidencia y accionabilidad,
+- generar guias practicas para decidir que probar,
+- exponer resultados en un dashboard,
+- guardar trazas de decisiones y validaciones,
+- desplegarse con infraestructura controlada.
 
-```text
-http://localhost:4173
-```
+## Estado Inicial
 
-## Que esta listo
+El starter contiene:
 
-- Dashboard inicial con datos de snapshots.
-- Normalizacion minima de fuentes.
-- Validacion de snapshots.
-- `.dekk.toml` con comandos reproducibles para Codex y estudiantes.
-- Migracion inicial de Supabase.
-- `.env.example` sin secretos.
-- `AGENTS.template.md` para generar el `AGENTS.md` real en clase 2.
+- `README.md`
+- `.gitignore`
 
-## Modelo de ramas
+La primera clase usa este estado para mostrar como `AGENTS.md` cambia la forma en que Codex entiende un proyecto antes de escribir codigo.
 
-`main` contiene el punto de partida estable. La rama `clase-00-starter` marca el estado inicial del proyecto.
+## Stack Objetivo
 
-Durante la produccion del curso, cada clase tendra una rama con el estado final de esa clase:
+El stack debe mantenerse simple para que el foco del curso sea Codex, no el framework.
 
-```text
-clase-00-starter
-clase-01-anatomia-codex
-clase-02-agents-md
-clase-03-skills
-clase-04-airadar-cli
-clase-05-ingestion
-clase-06-dedupe-clusters
-clase-07-ranking-guides
-clase-08-project-scout
-clase-09-operacion-segura
-clase-10-codex-exec-subagents
-clase-11-ai-newsroom
-clase-12-deploy-security
-clase-13-plugin-automation
-clase-14-final-demo
-```
+- Frontend: HTML, CSS y JavaScript.
+- Dominio: modulos JavaScript reutilizables.
+- CLI: `airadar` para comandos internos del proyecto.
+- Automatizacion local: scripts Node.js.
+- Proyecto agent-friendly: Dekk cuando existan comandos que deban usar humanos y agentes.
+- API: Vercel Functions cuando hagan falta endpoints.
+- Datos locales: fixtures y snapshots antes de conectar servicios externos.
+- Base de datos: Supabase cuando el contrato local ya funcione.
+- QA: `node:test` para dominio y Playwright cuando exista interfaz visual.
+- Demo final: video programatico con la evidencia del proyecto.
 
-La idea de trabajo es simple: empiezas desde la rama anterior, haces la clase, y comparas contra la rama de la clase cuando exista.
+## Reglas Iniciales Para Codex
 
-## Que se construye durante el curso
+Antes de implementar, Codex debe distinguir:
 
-- Skills del proyecto.
-- CLI `airadar`.
-- Ingestion idempotente.
-- Deduplicacion y clusters.
-- Ranking explicable.
-- `airadar codex` con `codex exec`.
-- Subagentes, observabilidad, deploy y automation diaria.
+- vision del producto,
+- estado actual del repositorio,
+- decisiones tecnicas tomadas,
+- decisiones pendientes,
+- limites de seguridad.
 
-## Primer prompt recomendado
+Codex no debe inventar archivos, comandos, servicios ni integraciones como si ya existieran.
 
-Usalo en clase 0, antes de editar:
-
-```text
-Lee este repo sin modificar archivos.
-
-Quiero que me entregues:
-- Que hace AI Radar hoy.
-- Como se ejecuta.
-- Donde viven los datos de ejemplo.
-- Que partes estan incompletas a proposito.
-- Que comandos debo correr para verificar el estado inicial.
-- Que deberia entrar en AGENTS.md en la siguiente clase.
-
-No edites nada todavia.
-```

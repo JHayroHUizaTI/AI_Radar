@@ -5,7 +5,6 @@ dist/
 coverage/
 .env
 .env.*
-!.env.example
 .airadar/
 *.log
 *.sqlite
