@@ -1,0 +1,23 @@
+# AI Radar — Dekk-first project commands
+
+[project]
+name = "airadar"
+description = "AI Radar starter for the advanced Codex course"
+
+[tools]
+node = { command = "node", version = ">=22" }
+pnpm = { command = "pnpm", version = ">=11" }
+
+[env]
+NODE_ENV = "development"
+
+[paths]
+bin = ["{project}/node_modules/.bin"]
+
+[commands]
+install = { run = "pnpm install", description = "Install project dependencies", group = "Setup" }
+doctor = { run = "node scripts/doctor.mjs", description = "Check AI Radar local development environment", skill = true, group = "Setup" }
+dev = { run = "pnpm dev", description = "Start AI Radar local dev server", skill = true, group = "Development" }
+build = { run = "pnpm build", description = "Build the static AI Radar app", skill = true, group = "Build & Test" }
+lint = { run = "pnpm lint", description = "Run project lint and starter safety checks", skill = true, group = "Build & Test" }
+test = { run = "pnpm test", description = "Run AI Radar tests", skill = true, group = "Build & Test" }

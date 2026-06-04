@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>AI Radar</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div>
+        <p class="eyebrow">AI Radar</p>
+        <h1>Senales de IA listas para investigar</h1>
+      </div>
+      <div class="status">
+        <span id="item-count">0</span>
+        <span>senales</span>
+      </div>
+    </header>
+
+    <main class="layout">
+      <section class="panel filters" aria-label="Filtros">
+        <button class="filter active" data-topic="all">Todo</button>
+        <button class="filter" data-topic="verified">Verificadas</button>
+        <button class="filter" data-topic="pending">Pendientes</button>
+        <button class="filter" data-topic="rejected">Rechazadas</button>
+      </section>
+
+      <section class="hero">
+        <div>
+          <p class="eyebrow">Briefing verificable</p>
+          <h2 id="headline">Cargando senales...</h2>
+          <p id="summary">AI Radar empieza simple para que Codex lo convierta en un sistema operable por agentes.</p>
+        </div>
+        <a id="primary-link" href="#" target="_blank" rel="noreferrer">Abrir fuente</a>
+      </section>
+
+      <section class="grid" id="cards" aria-live="polite"></section>
+    </main>
+
+    <script type="module" src="/main.js"></script>
+  </body>
+</html>
