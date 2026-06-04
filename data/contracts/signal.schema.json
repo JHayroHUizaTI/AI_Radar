@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://platzi.com/ai-radar/signal.schema.json",
+  "title": "AI Radar Signal",
+  "type": "object",
+  "required": [
+    "title",
+    "source",
+    "url",
+    "published_at",
+    "evidence",
+    "impact",
+    "action",
+    "status",
+    "dedupe_key"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "title": { "type": "string", "minLength": 1 },
+    "source": { "type": "string", "minLength": 1 },
+    "url": { "type": "string", "format": "uri" },
+    "published_at": { "type": "string", "minLength": 1 },
+    "evidence": { "type": "string", "minLength": 1 },
+    "impact": { "type": "string", "minLength": 1 },
+    "action": { "type": "string", "minLength": 1 },
+    "status": {
+      "type": "string",
+      "enum": ["verified", "pending", "rejected"]
+    },
+    "dedupe_key": { "type": "string", "minLength": 1 }
+  }
+}

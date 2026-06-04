@@ -1,0 +1,13 @@
+[
+  {
+    "title": "OpenAI presenta Codex como agente de desarrollo",
+    "source": "OpenAI Blog",
+    "url": "https://openai.com/index/introducing-codex/",
+    "published_at": "2026-05-01",
+    "evidence": "Publicacion oficial del proveedor.",
+    "impact": "Permite probar flujos de desarrollo con contexto de repositorio.",
+    "action": "Evaluar en un repo pequeno antes de automatizar tareas criticas.",
+    "status": "verified",
+    "dedupe_key": "openai-codex-agent"
+  }
+]
