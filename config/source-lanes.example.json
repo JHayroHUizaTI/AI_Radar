@@ -1,0 +1,28 @@
+{
+  "lanes": [
+    {
+      "id": "fuente_oficial",
+      "description": "Announcements, changelogs, docs, and company blogs.",
+      "reasoning": "medium",
+      "trust": "primary"
+    },
+    {
+      "id": "repo_tecnico",
+      "description": "Repositories, releases, commits, issues, and technical examples.",
+      "reasoning": "medium",
+      "trust": "primary_or_technical"
+    },
+    {
+      "id": "comunidad",
+      "description": "Early discussion from social or developer communities.",
+      "reasoning": "low",
+      "trust": "needs_confirmation"
+    },
+    {
+      "id": "medio_secundario",
+      "description": "Press, newsletters, summaries, and secondary analysis.",
+      "reasoning": "low",
+      "trust": "secondary"
+    }
+  ]
+}

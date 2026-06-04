@@ -26,6 +26,11 @@ Required fields:
 ## Rules
 
 - Prefer primary sources over secondary summaries.
+- Separate evidence by source lane when a task asks for parallel research:
+  - `fuente_oficial`
+  - `repo_tecnico`
+  - `comunidad`
+  - `medio_secundario`
 - Mark a signal as `verified` only when the source supports the claim.
 - Mark uncertain items as `pending`.
 - Do not invent URLs, dates, sources, or evidence.
