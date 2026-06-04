@@ -45,3 +45,5 @@ Required fields:
 Daily searches are generated evidence and should be written under `data/searches/` when needed. They are ignored by Git.
 
 If the user asks for a durable example, update `fixtures/signals.sample.json` with a small non-secret sample instead.
+
+When persistence is requested, normalize candidates first and then use `guardar-senales-airadar`. This skill must not write directly to Supabase.
