@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://platzi.com/ai-radar/weekly-snapshot.schema.json",
+  "title": "AI Radar Weekly Snapshot",
+  "type": "object",
+  "required": ["date_range", "query", "signals"],
+  "additionalProperties": false,
+  "properties": {
+    "date_range": {
+      "type": "object",
+      "required": ["from", "to"],
+      "additionalProperties": false,
+      "properties": {
+        "from": { "type": "string" },
+        "to": { "type": "string" }
+      }
+    },
+    "query": { "type": "string" },
+    "signals": {
+      "type": "array",
+      "items": { "$ref": "signal.schema.json" }
+    }
+  }
+}
