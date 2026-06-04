@@ -25,6 +25,8 @@ Required fields:
 
 ## Rules
 
+- If editorial sources are available through Notion, read them first.
+- If Notion is unavailable, use `config/sources.json` as a fallback only when it exists and state that fallback was used.
 - Prefer primary sources over secondary summaries.
 - Separate evidence by source lane when a task asks for parallel research:
   - `fuente_oficial`

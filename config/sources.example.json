@@ -1,0 +1,22 @@
+{
+  "generated_from": "notion",
+  "generated_at": "example",
+  "sources": [
+    {
+      "name": "OpenAI Blog",
+      "url": "https://openai.com/news/",
+      "category": "fuente_oficial",
+      "subagent": "fuente_oficial",
+      "status": "active",
+      "reviewed_at": "2026-06-01"
+    },
+    {
+      "name": "GitHub Trending",
+      "url": "https://github.com/trending",
+      "category": "repo_tecnico",
+      "subagent": "repo_tecnico",
+      "status": "active",
+      "reviewed_at": "2026-06-01"
+    }
+  ]
+}
