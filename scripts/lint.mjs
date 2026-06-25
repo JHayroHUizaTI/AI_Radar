@@ -14,6 +14,7 @@ const required = [
 ];
 
 const secretKeys = [
+  "SUPABASE_SECRET_KEY",
   "SUPABASE_SERVICE_ROLE_KEY",
   "OPENAI_API_KEY",
   "GITHUB_TOKEN",
@@ -31,6 +32,7 @@ async function walk(dir) {
   const files = [];
   for (const entry of entries) {
     if (["node_modules", "dist"].includes(entry.name)) continue;
+    if (entry.name === ".env") continue;
     const full = resolve(dir, entry.name);
     if (entry.isDirectory()) {
       files.push(...(await walk(full)));

@@ -23,7 +23,7 @@ for (const [path, label] of checks) {
 }
 
 const envExample = await readFile(".env.example", "utf8");
-const filledSecret = /(SUPABASE_SERVICE_ROLE_KEY|OPENAI_API_KEY|GITHUB_TOKEN|HF_TOKEN|PRODUCT_HUNT_TOKEN)=[^\s"']{8,}/.exec(envExample);
+const filledSecret = /(SUPABASE_SECRET_KEY|SUPABASE_SERVICE_ROLE_KEY|OPENAI_API_KEY|GITHUB_TOKEN|HF_TOKEN|PRODUCT_HUNT_TOKEN)=[^\s"']{8,}/.exec(envExample);
 if (filledSecret) {
   failed = true;
   console.error(`SECRET-LIKE VALUE in .env.example: ${filledSecret[1]}`);

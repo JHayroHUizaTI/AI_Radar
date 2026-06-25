@@ -18,11 +18,47 @@ async function loadRadarItems() {
   return JSON.parse(await readFile(resolve(root, "fixtures/signals.sample.json"), "utf8"));
 }
 
+async function loadSupabaseItems() {
+  const supabaseUrl = process.env.SUPABASE_URL;
+  const serverKey =
+    process.env.SUPABASE_SECRET_KEY ?? process.env.SUPABASE_SERVICE_ROLE_KEY;
+
+  if (!supabaseUrl || !serverKey) {
+    return loadRadarItems();
+  }
+
+  const endpoint = new URL("/rest/v1/signals", supabaseUrl);
+  endpoint.searchParams.set(
+    "select",
+    "title,source,canonical_url,published_at,evidence,impact,action,status,fingerprint"
+  );
+  endpoint.searchParams.set("status", "eq.verified");
+  endpoint.searchParams.set("order", "published_at.desc");
+  endpoint.searchParams.set("limit", "50");
+
+  const response = await fetch(endpoint, {
+    headers: {
+      apikey: serverKey,
+      authorization: `Bearer ${serverKey}`
+    }
+  });
+
+  if (!response.ok) {
+    throw new Error(`Supabase query failed (${response.status})`);
+  }
+
+  return (await response.json()).map((item) => ({
+    ...item,
+    url: item.canonical_url,
+    dedupe_key: item.fingerprint
+  }));
+}
+
 const server = createServer(async (req, res) => {
   try {
     const url = new URL(req.url ?? "/", `http://localhost:${port}`);
-    if (url.pathname === "/data/signals.json") {
-      const items = await loadRadarItems();
+    if (url.pathname === "/api/signals" || url.pathname === "/data/signals.json") {
+      const items = await loadSupabaseItems();
       res.writeHead(200, { "content-type": contentTypes[".json"] });
       res.end(JSON.stringify(items, null, 2));
       return;

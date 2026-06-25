@@ -4,9 +4,10 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "node scripts/dev.mjs",
+    "dev": "node --env-file-if-exists=.env scripts/dev.mjs",
     "build": "node scripts/build.mjs",
     "doctor": "node scripts/doctor.mjs",
+    "ingest": "node --env-file=.env scripts/ingest-signals.mjs",
     "lint": "node scripts/lint.mjs",
     "test": "node --test tests/*.test.mjs"
   },

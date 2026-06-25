@@ -60,6 +60,6 @@ filters.forEach((button) => {
   });
 });
 
-const response = await fetch("/data/signals.json");
+const response = await fetch("/api/signals");
 items = await response.json();
 renderCards();
